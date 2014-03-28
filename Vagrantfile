@@ -5,6 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "chef_solo" do |chef|
     chef.add_recipe "hosts"
+    chef.add_recipe "file"
   end
 
   config.vm.define :centos65 do |c|
