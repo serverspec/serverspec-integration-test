@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 task :spec => "spec:all"
 
 namespace :spec do
-  hosts = `vagrant status | grep running | awk '{print $1}'`.split(/\n/)
+  hosts = %w( centos65 ubuntu1310 debian74 )
 
   task :all => hosts
 
