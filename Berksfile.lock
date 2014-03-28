@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "hosts": {
+      "path": "./site-cookbooks/hosts"
+    },
+    "hostsfile": {
+      "locked_version": "2.4.4"
+    }
+  }
+}
