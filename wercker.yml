@@ -50,6 +50,6 @@ build:
   after-steps:
     - script:
         name: Run vagrant destroy
-        code: vagrant destroy --force
+        code: vagrant destroy centos65 --force
     - 1syo/idobata-notify@0.1.1:
         token: $IDOBATA_TOKEN
