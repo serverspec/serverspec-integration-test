@@ -20,8 +20,14 @@ build:
         name: Run chmod 0400 $HOME/.ssh/id_rsa
         code: chmod 0400 $HOME/.ssh/id_rsa
     - script:
-        name: gem install
+        name: gem install serverspec
         code: sudo gem install serverspec --no-ri --no-rdoc
+    - script:
+        name: gem install berkshelf
+        code: sudo gem install berkshelf --no-ri --no-rdoc
+    - script:
+        name: Run berks install
+        code: berks install --path=cookbooks
     - script:
         name: Get Vagrant
         code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
