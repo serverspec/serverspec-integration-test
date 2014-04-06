@@ -1,0 +1,44 @@
+box: wercker/ruby
+build:
+  steps:
+    - script:
+        name: Make $HOME/.ssh directory
+        code: mkdir -p $HOME/.ssh
+    - create-file:
+        name: Put SSH public key
+        filename: $HOME/.ssh/id_rsa.pub
+        overwrite: true
+        hide-from-log: true
+        content: $DIGITALOCEAN_SSH_KEY_PUBLIC
+    - create-file:
+        name: Put SSH private key
+        filename: $HOME/.ssh/id_rsa
+        overwrite: true
+        hide-from-log: true
+        content: $DIGITALOCEAN_SSH_KEY_PRIVATE
+    - script:
+        name: Run chmod 0400 $HOME/.ssh/id_rsa
+        code: chmod 0400 $HOME/.ssh/id_rsa
+    - script:
+        name: gem install
+        code: sudo gem install serverspec --no-ri --no-rdoc
+    - script:
+        name: Get Vagrant
+        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
+    - script:
+        name: Install Vagrant
+        code: sudo dpkg -i vagrant_1.5.1_x86_64.deb
+    - script:
+        name: Run vagrant plugin install
+        code: vagrant plugin install vagrant-digitalocean
+    - script:
+        name: Run vagrant up centos65
+        code: vagrant up centos65 --provider=digital_ocean
+    - script:
+        name: Run rake spec:centos65
+        code: rake spec:centos65
+
+  after-steps:
+    - script:
+        name: Run vagrant destroy
+        code: vagrant destroy --force
