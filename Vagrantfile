@@ -30,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.provider :digital_ocean do |provider, override|
       provider.image = "CentOS 6.4 x64"
     end
+    c.vm.hostname = "centos65-#{ENV['WERCKER_BUILD_ID']}"
   end
 
   config.vm.define :ubuntu1310 do |c|
