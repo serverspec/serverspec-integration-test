@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
 
     if ENV['WERCKER'] == "true"
-      provider.ssh_key_name = "wercker-serverspec-integration-test"
+      provider.ssh_key_name = "wercker-#{ENV['WERCKER_GIT_REPOSITORY']}"
     else
       provider.ssh_key_name = "local"
     end
