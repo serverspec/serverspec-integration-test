@@ -17,7 +17,7 @@ fi
 cd $WORKING_DIR
 
 sudo gem install berkshelf --no-ri --no-rdoc
-berks install --path=cookbooks
+berks vendor cookbooks
 
 wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
 sudo dpkg -i vagrant_1.5.1_x86_64.deb
