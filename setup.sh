@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo yum -y install autoconf
+
 sudo gem install rspec       --no-ri --no-rdoc
 sudo gem install octorelease --no-ri --no-rdoc
 
