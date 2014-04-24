@@ -1,4 +1,4 @@
-box: wercker/ruby
+box: wercker/serverspec-base
 build:
   steps:
     - script:
