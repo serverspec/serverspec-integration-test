@@ -41,8 +41,12 @@ build:
 
   after-steps:
     - script:
-        name: Run vagrant destroy
-        code: vagrant destroy --force
+        name: Run vagrant destroy centos65
+        code: vagrant destroy centos65 --force
+        cwd: $WORKING_DIR
+    - script:
+        name: Run vagrant destroy ubuntu1310
+        code: vagrant destroy ubuntu1310 --force
         cwd: $WORKING_DIR
     - 1syo/idobata-notify@0.1.1:
         token: $IDOBATA_TOKEN
