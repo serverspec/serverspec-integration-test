@@ -35,6 +35,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define :ubuntu1310 do |c|
     c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = "Ubuntu 13.10 x64"
+    end
+    c.vm.hostname = "ubuntu1310-#{ENV['WERCKER_BUILD_ID']}"
   end
 
   config.vm.define :debian74 do |c|

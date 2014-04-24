@@ -30,6 +30,14 @@ build:
         name: Run rake spec:centos65
         code: rake spec:centos65
         cwd: $WORKING_DIR
+    - script:
+        name: Run vagrant up ubuntu1310
+        code: vagrant up ubuntu1310 --provider=digital_ocean
+        cwd: $WORKING_DIR
+    - script:
+        name: Run rake spec:ubuntu1310
+        code: rake spec:ubuntu1310
+        cwd: $WORKING_DIR
 
   after-steps:
     - script:
