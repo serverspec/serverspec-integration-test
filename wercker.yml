@@ -1,4 +1,4 @@
-box: wercker/serverspec-base
+box: mizzy/serverspec-base
 build:
   steps:
     - script:
