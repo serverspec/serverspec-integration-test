@@ -6,6 +6,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "chef_solo" do |chef|
     chef.add_recipe "hosts"
     chef.add_recipe "file"
+    chef.add_recipe "cron"
   end
 
   config.vm.provider :digital_ocean do |provider, override|

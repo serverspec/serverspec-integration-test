@@ -1,5 +1,6 @@
 site :opscode
 
-cookbook "hosts", path: "./site-cookbooks/hosts"
-cookbook "file",  path: "./site-cookbooks/file"
+%w( hosts file cron ).each do |type|
+  cookbook type, path: "./site-cookbooks/#{type}"
+end
 
