@@ -9,6 +9,9 @@
     "cron": {
       "path": "./site-cookbooks/cron"
     },
+    "package": {
+      "path": "./site-cookbooks/package"
+    },
     "hostsfile": {
       "locked_version": "2.4.4"
     }
