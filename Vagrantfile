@@ -32,7 +32,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.provider :digital_ocean do |provider, override|
       provider.image = "CentOS 6.4 x64"
     end
-    c.vm.hostname = "centos65-#{ENV['WERCKER_BUILD_ID']}"
+    c.vm.hostname  = "centos65"
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
   config.vm.define :ubuntu1310 do |c|
@@ -40,9 +41,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.provider :digital_ocean do |provider, override|
       provider.image = "Ubuntu 13.10 x64"
     end
-    hostname  = "ubuntu1310"
-    hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
-    c.vm.hostname = hostname
+    c.vm.hostname  = "ubuntu1310"
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
   config.vm.define :debian74 do |c|
