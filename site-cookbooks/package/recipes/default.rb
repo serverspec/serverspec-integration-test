@@ -5,3 +5,10 @@ when "redhat", "centos", "fedora"
   end
 end
 
+package "ethtool" do
+  action :install
+end
+
+package "gawk" do
+  action :install
+end
