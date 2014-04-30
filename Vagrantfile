@@ -40,7 +40,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.provider :digital_ocean do |provider, override|
       provider.image = "Ubuntu 13.10 x64"
     end
-    c.vm.hostname = "ubuntu1310-#{ENV['WERCKER_BUILD_ID']}"
+    hostname  = "ubuntu1310"
+    hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+    c.vm.hostname = hostname
   end
 
   config.vm.define :debian74 do |c|
