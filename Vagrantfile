@@ -49,4 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_debian-7.4_chef-provisionerless.box"
   end
 
+  config.vm.define :openbsd54 do |c|
+    c.vm.box = "tmatilai/openbsd-5.4"
+  end
 end
