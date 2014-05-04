@@ -12,3 +12,7 @@ end
 package "gawk" do
   action :install
 end
+
+package "postfix" do
+  action :install
+end

@@ -12,8 +12,20 @@
     "package": {
       "path": "./site-cookbooks/package"
     },
+    "alias": {
+      "path": "./site-cookbooks/alias"
+    },
     "hostsfile": {
       "locked_version": "2.4.4"
+    },
+    "mail_alias": {
+      "locked_version": "0.1.0"
+    },
+    "minitest-handler": {
+      "locked_version": "1.2.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.6"
     }
   }
 }
