@@ -16,3 +16,7 @@ end
 package "postfix" do
   action :install
 end
+
+package "php" do
+  action :install
+end
