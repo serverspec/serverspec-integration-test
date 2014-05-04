@@ -4,8 +4,8 @@ describe host('example.jp') do
   it { should be_resolvable }
   its(:ipaddress) { should eq '1.2.3.4' }
 
-  it { should     be_resolvable.by('hosts') }
-  it { should_not be_resolvable.by('dns')   }
+  it { should be_resolvable.by('hosts') }
+  it { should be_resolvable.by('dns') }
 end
 
 describe host('www.google.com') do

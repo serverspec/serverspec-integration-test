@@ -1,5 +1,8 @@
 {
   "sources": {
+    "dnsmasq": {
+      "path": "./site-cookbooks/dnsmasq"
+    },
     "hosts": {
       "path": "./site-cookbooks/hosts"
     },
