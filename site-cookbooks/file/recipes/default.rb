@@ -2,7 +2,7 @@ link "/tmp-link" do
   to "/tmp"
 end
 
-file "/tmp/test.sh" do
+file "/var/test.sh" do
   owner "root"
   group "root"
   mode  "0700"

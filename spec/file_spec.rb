@@ -42,7 +42,7 @@ describe file('/bin/ls') do
   it { should be_executable }
 end
 
-describe file('/tmp/test.sh') do
+describe file('/var/test.sh') do
   it { should be_executable.by_user('root') }
   it { should_not be_executable.by_user('daemon') }
   it { should match_md5checksum '098f6bcd4621d373cade4e832627b4f6' }
