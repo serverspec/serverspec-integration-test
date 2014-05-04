@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe command('cat /tmp/test.sh') do
+describe command('cat /var/test.sh') do
   it { should return_stdout 'test' }
   it { should return_exit_status 0 }
   its(:stdout) { should match /test/ }
