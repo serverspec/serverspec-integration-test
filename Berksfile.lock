@@ -15,6 +15,9 @@
     "alias": {
       "path": "./site-cookbooks/alias"
     },
+    "selinux": {
+      "locked_version": "0.8.0"
+    },
     "hostsfile": {
       "locked_version": "2.4.4"
     },
