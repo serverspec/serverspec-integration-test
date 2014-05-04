@@ -7,9 +7,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "hosts"
     chef.add_recipe "file"
     chef.add_recipe "cron"
+    chef.add_recipe "selinux::disabled"
     chef.add_recipe "package"
     chef.add_recipe "alias"
-    chef.add_recipe "selinux::disabled"
   end
 
   config.vm.provider :digital_ocean do |provider, override|
