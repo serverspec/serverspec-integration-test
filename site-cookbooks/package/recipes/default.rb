@@ -28,14 +28,6 @@ package php_package do
   action :install
 end
 
-package "dnsmasq" do
-  action :install
-end
-
-service "dnsmasq" do
-  action [ :enable, :start ]
-end
-
 package "memcached" do
   action :install
 end
@@ -44,3 +36,10 @@ service "memcached" do
   action [ :enable, :start ]
 end
 
+package "dnsmasq" do
+  action :install
+end
+
+service "dnsmasq" do
+  action [ :enable, :start ]
+end
