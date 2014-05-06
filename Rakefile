@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 task :spec => "spec:all"
 
 namespace :spec do
-  hosts = %w( centos65 ubuntu1310 debian74 )
+  hosts = %w( centos65 ubuntu1310 )
 
   task :all => hosts
 
