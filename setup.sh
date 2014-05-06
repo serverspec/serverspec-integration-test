@@ -6,10 +6,10 @@ if [ $WERCKER_GIT_REPOSITORY = 'specinfra' ]; then
   sudo gem install serverspec --no-ri --no-rdoc
 elif [ $WERCKER_GIT_REPOSITORY = 'serverspec' ]; then
   rake build
-  sudo gem install specinfra -v 2.0.0.beta1
+  sudo gem install specinfra -v 2.0.0.beta2
   sudo gem install pkg/serverspec-*.gem --no-ri --no-rdoc
 else
-  sudo gem install specinfra -v 2.0.0.beta1
+  sudo gem install specinfra -v 2.0.0.beta2
   sudo gem install serverspec --no-ri --no-rdoc
 fi
 
