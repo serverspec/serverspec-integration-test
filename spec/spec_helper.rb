@@ -4,8 +4,8 @@ $:.unshift "../specinfra/lib"
 require 'serverspec'
 require 'net/ssh'
 
-include SpecInfra::Helper::Ssh
-include SpecInfra::Helper::DetectOS
+include Specinfra::Helper::Ssh
+include Specinfra::Helper::DetectOS
 
 RSpec.configure do |c|
   options = {}
