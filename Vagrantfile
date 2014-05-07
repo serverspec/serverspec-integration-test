@@ -38,6 +38,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
+  config.vm.define :fedora20 do |c|
+    c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-20_chef-provisionerless.box"
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = "Fedora 20 x64"
+    end
+    c.vm.hostname  = "fedora20"
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
+
   config.vm.define :ubuntu1310 do |c|
     c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
     c.vm.provider :digital_ocean do |provider, override|

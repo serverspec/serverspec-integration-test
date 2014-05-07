@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe process('init') do
+describe process('sshd') do
   it { should be_running }
   its(:user)  { should eq 'root' }
   its(:group) { should eq 'root' }
