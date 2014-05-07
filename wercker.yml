@@ -35,6 +35,18 @@ build:
         code: rake spec:centos65
         cwd: $WORKING_DIR
     - script:
+        name: Run vagrant up fedora20
+        code: vagrant up fedora20 --provider=digital_ocean
+        cwd: $WORKING_DIR
+    - script:
+        name: Run vagrant reload fedora20
+        code: vagrant reload fedora20
+        cwd: $WORKING_DIR
+    - script:
+        name: Run rake spec:fedora20
+        code: rake spec:fedora20
+        cwd: $WORKING_DIR
+    - script:
         name: Run vagrant up ubuntu1310
         code: vagrant up ubuntu1310 --provider=digital_ocean
         cwd: $WORKING_DIR
@@ -51,6 +63,10 @@ build:
     - script:
         name: Run vagrant destroy centos65
         code: vagrant destroy centos65 --force
+        cwd: $WORKING_DIR
+    - script:
+        name: Run vagrant destroy fedora20
+        code: vagrant destroy fedora20 --force
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant destroy ubuntu1310
