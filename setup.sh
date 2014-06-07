@@ -15,4 +15,4 @@ fi
 
 cd $WORKING_DIR
 
-berks install --path=cookbooks
+berks vendor cookbooks
