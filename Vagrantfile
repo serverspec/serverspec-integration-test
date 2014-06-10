@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.vm.box               = "AndrewDryga/digital-ocean"
     provider.client_id            = ENV["DIGITALOCEAN_CLIENT_ID"]
     provider.api_key              = ENV["DIGITALOCEAN_API_KEY"]
-    provider.region               = "San Francisco 1"
+    provider.region               = "Singapore 1"
     provider.size                 = "512MB"
     provider.ca_path              =
       "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
