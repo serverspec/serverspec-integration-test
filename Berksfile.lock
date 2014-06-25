@@ -14,6 +14,7 @@ DEPENDENCIES
 GRAPH
   alias (0.1.0)
     mail_alias (>= 0.0.0)
+  apt (2.4.0)
   chef_handler (1.1.6)
   cron (0.0.1)
   file (0.1.0)
@@ -25,4 +26,7 @@ GRAPH
   minitest-handler (1.2.0)
     chef_handler (>= 0.0.0)
   package (0.0.1)
+    apt (>= 0.0.0)
+    yum (>= 0.0.0)
   selinux (0.8.0)
+  yum (3.2.2)
