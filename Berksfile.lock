@@ -1,34 +1,32 @@
-{
-  "sources": {
-    "selinux": {
-      "path": "./site-cookbooks/selinux"
-    },
-    "hosts": {
-      "path": "./site-cookbooks/hosts"
-    },
-    "file": {
-      "path": "./site-cookbooks/file"
-    },
-    "cron": {
-      "path": "./site-cookbooks/cron"
-    },
-    "package": {
-      "path": "./site-cookbooks/package"
-    },
-    "alias": {
-      "path": "./site-cookbooks/alias"
-    },
-    "hostsfile": {
-      "locked_version": "2.4.4"
-    },
-    "mail_alias": {
-      "locked_version": "0.1.0"
-    },
-    "minitest-handler": {
-      "locked_version": "1.2.0"
-    },
-    "chef_handler": {
-      "locked_version": "1.1.6"
-    }
-  }
-}
+DEPENDENCIES
+  alias
+    path: site-cookbooks/alias
+  cron
+    path: site-cookbooks/cron
+  file
+    path: site-cookbooks/file
+  hosts
+    path: site-cookbooks/hosts
+  package
+    path: site-cookbooks/package
+  selinux
+
+GRAPH
+  alias (0.1.0)
+    mail_alias (>= 0.0.0)
+  apt (2.4.0)
+  chef_handler (1.1.6)
+  cron (0.0.1)
+  file (0.1.0)
+  hosts (0.1.0)
+    hostsfile (>= 0.0.0)
+  hostsfile (2.4.4)
+  mail_alias (0.1.0)
+    minitest-handler (>= 0.0.0)
+  minitest-handler (1.2.0)
+    chef_handler (>= 0.0.0)
+  package (0.0.1)
+    apt (>= 0.0.0)
+    yum (>= 0.0.0)
+  selinux (0.8.0)
+  yum (3.2.2)
