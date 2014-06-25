@@ -1,45 +1,42 @@
-case node["platform"]
-when "redhat", "centos", "fedora"
-  package "bind-utils" do
-    action :install
-  end
+case node['platform_family']
+when 'rhel', 'fedora'
+  include_recipe 'yum'
+  php_package = 'php'
+
+  package('bind-utils') { action :install }
+when 'debian'
+  include_recipe 'apt'
+  php_package = 'php5'
 end
 
-package "ethtool" do
+package 'ethtool' do
   action :install
 end
 
-package "gawk" do
+package 'gawk' do
   action :install
 end
 
-package "postfix" do
+package 'postfix' do
   action :install
-end
-
-case node["platform"]
-when "redhat", "centos", "fedora"
-  php_package = "php"
-when "ubuntu"
-  php_package = "php5"
 end
 
 package php_package do
   action :install
 end
 
-package "memcached" do
+package 'memcached' do
   action :install
 end
 
-service "memcached" do
+service 'memcached' do
   action [ :enable, :start ]
 end
 
-package "dnsmasq" do
+package 'dnsmasq' do
   action :install
 end
 
-service "dnsmasq" do
+service 'dnsmasq' do
   action [ :enable, :start ]
 end
