@@ -48,12 +48,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
 
-  config.vm.define :ubuntu1310 do |c|
-    c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
+  config.vm.define :ubuntu1404 do |c|
+    c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = "Ubuntu 13.10 x64"
+      provider.image = "Ubuntu 14.04 x64"
     end
-    c.vm.hostname  = "ubuntu1310"
+    c.vm.hostname  = "ubuntu1404"
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
