@@ -11,7 +11,7 @@ namespace :spec do
   hosts.each do |host|
     RSpec::Core::RakeTask.new(host.to_sym) do |t|
       puts "Running tests to #{host} ..."
-      ENV["HOST"] = host
+      ENV["TARGET_HOST"] = host
       t.pattern = "spec/*_spec.rb"
     end
   end
