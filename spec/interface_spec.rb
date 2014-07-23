@@ -1,9 +1,15 @@
 require 'spec_helper'
 
-speed  = backend.get_interface_speed_of('eth0').stdout.strip.to_i
-ipaddr = backend.run_command("ip addr show eth0 | grep 'inet ' | awk '{print $2}'").stdout.strip
+if os[:family] == 'redhat' && os[:release].to_i == 7
+  i = 'enp0s3'
+else
+  p = 'eth0'
+end
 
-describe interface('eth0') do
+speed  = backend.get_interface_speed_of(i).stdout.strip.to_i
+ipaddr = backend.run_command("ip addr show #{i} | grep 'inet ' | awk '{print $2}'").stdout.strip
+
+describe interface(i) do
   if ! ENV['WERCKER']
     its(:speed) { should eq speed }
   end
