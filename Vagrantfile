@@ -38,12 +38,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
-  config.vm.define :ubuntu1310 do |c|
-    c.vm.box = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
+  config.vm.define :centos70 do |c|
+    c.vm.box = "chef/centos-7.0"
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = "Ubuntu 13.10 x64"
+      provider.image = "CentOS 7.0 x64"
     end
-    c.vm.hostname  = "ubuntu1310"
+    c.vm.hostname  = "centos70"
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
+  config.vm.define :ubuntu1404 do |c|
+    c.vm.box = "chef/ubuntu-14.04"
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = "Ubuntu 14.04 x64"
+    end
+    c.vm.hostname  = "ubuntu1404"
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
