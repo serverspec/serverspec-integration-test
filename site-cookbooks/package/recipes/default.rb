@@ -4,6 +4,7 @@ when 'rhel', 'fedora'
   php_package = 'php'
 
   package('bind-utils') { action :install }
+  package('net-tools') { action :install }
 when 'debian'
   include_recipe 'apt'
   php_package = 'php5'
