@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-if os[:family] == 'redhat' && os[:release].to_i == 7
+if os[:family] == 'redhat' && os[:release].to_i == 7 && ENV['WERCKER'] != 'true'
   i = 'enp0s3'
 else
   p = 'eth0'
