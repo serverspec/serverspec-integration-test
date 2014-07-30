@@ -3,7 +3,7 @@ require 'spec_helper'
 if os[:family] == 'redhat' && os[:release].to_i == 7 && ENV['WERCKER'] != 'true'
   i = 'enp0s3'
 else
-  p = 'eth0'
+  i = 'eth0'
 end
 
 speed  = backend.get_interface_speed_of(i).stdout.strip.to_i
