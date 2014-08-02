@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-runner = Specinfra::Runner.instance
-version = runner.get_package_version('chef').stdout
+version = Specinfra::Runner.get_package_version('chef').stdout
 
 describe package('chef') do
   it { should     be_installed }

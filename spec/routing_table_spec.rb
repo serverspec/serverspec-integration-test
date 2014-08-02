@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-runner = Specinfra::Runner.instance
-res = runner.run_command('netstat -rn | grep ^0.0.0.0').stdout.split(/\s+/)
+res = Specinfra::Runner.run_command('netstat -rn | grep ^0.0.0.0').stdout.split(/\s+/)
 
 describe routing_table do
   it do
