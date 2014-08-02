@@ -6,8 +6,9 @@ else
   i = 'eth0'
 end
 
-speed  = backend.get_interface_speed_of(i).stdout.strip.to_i
-ipaddr = backend.run_command("ip addr show #{i} | grep 'inet ' | awk '{print $2}'").stdout.strip
+runner = Specinfra::Runner.instance
+speed  = runner.get_interface_speed_of(i).stdout.strip.to_i
+ipaddr = runner.run_command("ip addr show #{i} | grep 'inet ' | awk '{print $2}'").stdout.strip
 
 describe interface(i) do
   if ! ENV['WERCKER']
@@ -16,3 +17,5 @@ describe interface(i) do
 
   it { should have_ipv4_address(ipaddr) }
 end
+
+
