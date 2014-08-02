@@ -5,7 +5,7 @@ require 'serverspec'
 require 'net/ssh'
 require 'tempfile'
 
-include Specinfra::Helper::Ssh
+set :backend, :ssh
 
 host = ENV['TARGET_HOST']
 
