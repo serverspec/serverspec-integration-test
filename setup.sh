@@ -15,4 +15,6 @@ fi
 
 cd $WORKING_DIR
 
+bundle install
+
 berks vendor cookbooks

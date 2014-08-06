@@ -1,6 +1,4 @@
 DEPENDENCIES
-  alias
-    path: site-cookbooks/alias
   cron
     path: site-cookbooks/cron
   file
@@ -12,19 +10,12 @@ DEPENDENCIES
   selinux
 
 GRAPH
-  alias (0.1.0)
-    mail_alias (>= 0.0.0)
   apt (2.4.0)
-  chef_handler (1.1.6)
   cron (0.0.1)
   file (0.1.0)
   hosts (0.1.0)
     hostsfile (>= 0.0.0)
   hostsfile (2.4.4)
-  mail_alias (0.1.0)
-    minitest-handler (>= 0.0.0)
-  minitest-handler (1.2.0)
-    chef_handler (>= 0.0.0)
   package (0.0.1)
     apt (>= 0.0.0)
     yum (>= 0.0.0)

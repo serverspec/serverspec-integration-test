@@ -27,6 +27,10 @@ build:
         code: vagrant up centos65 --provider=digital_ocean
         cwd: $WORKING_DIR
     - script:
+        name: Run itamae
+        code: bundle exec ./itamae.rb centos65
+        cwd: $WORKING_DIR
+    - script:
         name: Run vagrant reload centos65
         code: vagrant reload centos65
         cwd: $WORKING_DIR
@@ -39,6 +43,10 @@ build:
         code: vagrant up centos70 --provider=digital_ocean
         cwd: $WORKING_DIR
     - script:
+        name: Run itamae
+        code: bundle exec ./itamae.rb centos70
+        cwd: $WORKING_DIR
+    - script:
         name: Run vagrant reload centos70
         code: vagrant reload centos70
         cwd: $WORKING_DIR
@@ -49,6 +57,10 @@ build:
     - script:
         name: Run vagrant up ubuntu1404
         code: vagrant up ubuntu1404 --provider=digital_ocean
+        cwd: $WORKING_DIR
+    - script:
+        name: Run itamae
+        code: bundle exec ./itamae.rb ubuntu1404
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant reload ubuntu1404
