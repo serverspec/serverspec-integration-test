@@ -1,4 +1,4 @@
-box: mizzy/serverspec-base
+box: mizzy/serverspec-base@0.0.2
 build:
   steps:
     - script:
