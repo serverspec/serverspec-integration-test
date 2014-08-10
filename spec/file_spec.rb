@@ -45,8 +45,8 @@ end
 describe file('/var/test.sh') do
   it { should be_executable.by_user('root') }
   it { should_not be_executable.by_user('daemon') }
-  it { should match_md5checksum '098f6bcd4621d373cade4e832627b4f6' }
-  it { should match_sha256checksum '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08' }
+  its(:md5sum) { should eq '098f6bcd4621d373cade4e832627b4f6' }
+  its(:sha256sum) { should eq '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08' }
   its(:content) { should match /test/ }
 end
 
