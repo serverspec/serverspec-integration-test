@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 describe command('cat /var/test.sh') do
-  it { should return_stdout 'test' }
-  it { should return_exit_status 0 }
   its(:stdout) { should match /test/ }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command('cat /not_exist') do
-  it { should return_stderr /No such file or directory/ }
-  it { should return_exit_status 1 }
+  its(:stderr) { should match /No such file or directory/ }
+  its(:exit_status) { should eq 1 }
 end
