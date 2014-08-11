@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
-gem 'itamae', :github => 'ryotarai/itamae', :branch => 'master'
+gem 'itamae', :github => 'mizzy/itamae', :branch => 'serverspec-integration-test'
 
