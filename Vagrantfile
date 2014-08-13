@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider :digital_ocean do |provider, override|
-    override.ssh.private_key_path = '~/.ssh/id_boot2docker'
+    override.ssh.private_key_path = '~/.ssh/id_ra'
     override.vm.box               = 'AndrewDryga/digital-ocean'
     provider.token                = ENV['DIGITALOCEAN_ACCESS_TOKEN']
     provider.region               = 'sgp1'
