@@ -36,7 +36,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run rake spec:centos65
-        code: rake spec:centos65
+        code: DIGITALOCEAN=1 rake spec:centos65
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant up centos70
@@ -52,7 +52,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run rake spec:centos70
-        code: rake spec:centos70
+        code: DIGITALOCEAN=1 rake spec:centos70
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant up ubuntu1404
@@ -68,7 +68,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run rake spec:ubuntu1404
-        code: rake spec:ubuntu1404
+        code: DIGITALOCEAN=1 rake spec:ubuntu1404
         cwd: $WORKING_DIR
 
   after-steps:
