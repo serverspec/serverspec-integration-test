@@ -3,7 +3,20 @@ require 'spec_helper'
 describe file('/etc/passwd') do
   it { should be_file }
   it { should contain 'root:x:0:0:root:/root:/bin/bash' }
-  it { should be_mode 644 }
+  it { should be_mode '644' }
+
+  it { should be_readable.by(:owner) }
+  it { should be_readable.by(:group) }
+  it { should be_readable.by(:others) }
+
+  it { should     be_writable.by(:owner) }
+  it { should_not be_writable.by(:group) }
+  it { should_not be_writable.by(:others) }
+
+  it { should_not be_executable.by(:owner) }
+  it { should_not be_executable.by(:group) }
+  it { should_not be_executable.by(:others) }
+
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
