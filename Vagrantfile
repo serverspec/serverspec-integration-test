@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.ssh.private_key_path = '~/.ssh/id_rsa'
     override.vm.box               = 'AndrewDryga/digital-ocean'
     provider.token                = ENV['DIGITALOCEAN_ACCESS_TOKEN']
-    provider.region               = 'Singapore 1'
+    provider.region               = 'sgp1'
     provider.size                 = '512MB'
     provider.ca_path              =
       '/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt'
