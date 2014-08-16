@@ -56,3 +56,11 @@ describe file('/tmp/wercker.yml') do
   end
   it { should be_file }
 end
+
+describe file('/var/test.conf') do
+  it { should_not contain('StartServers 5').from(/^<IfModule>/).to(/^<\/IfModule>/) }
+end
+
+describe file('/var/test.conf') do
+  it { should contain('StartServers 100').from(/^<IfModule>/).to(/^<\/IfModule>/) }
+end
