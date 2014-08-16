@@ -10,3 +10,13 @@ file "/var/test.sh" do
   content "test"
 end
 
+file "/var/test.conf" do
+  content <<-EOF
+<IfModule>
+StartServers 100
+</IfModule>
+
+<IfModule>
+StartServers 5
+EOF
+end

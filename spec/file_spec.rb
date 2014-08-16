@@ -49,3 +49,11 @@ describe file('/var/test.sh') do
   it { should match_sha256checksum '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08' }
   its(:content) { should match /test/ }
 end
+
+describe file('/var/test.conf') do
+  it { should_not contain('StartServers 5').from(/^<IfModule>/).to(/^<\/IfModule>/) }
+end
+
+describe file('/var/test.conf') do
+  it { should contain('StartServers 100').from(/^<IfModule>/).to(/^<\/IfModule>/) }
+end
