@@ -1,8 +1,6 @@
 DEPENDENCIES
   cron
     path: site-cookbooks/cron
-  file
-    path: site-cookbooks/file
   hosts
     path: site-cookbooks/hosts
   package
@@ -12,7 +10,6 @@ DEPENDENCIES
 GRAPH
   apt (2.4.0)
   cron (0.0.1)
-  file (0.1.0)
   hosts (0.1.0)
     hostsfile (>= 0.0.0)
   hostsfile (2.4.4)
