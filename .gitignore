@@ -1,4 +1,5 @@
 .vagrant
 cookbooks
 Gemfile.lock
+Gemfile.local
 

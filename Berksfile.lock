@@ -3,18 +3,11 @@ DEPENDENCIES
     path: site-cookbooks/cron
   hosts
     path: site-cookbooks/hosts
-  package
-    path: site-cookbooks/package
   selinux
 
 GRAPH
-  apt (2.4.0)
   cron (0.0.1)
   hosts (0.1.0)
     hostsfile (>= 0.0.0)
   hostsfile (2.4.4)
-  package (0.0.1)
-    apt (>= 0.0.0)
-    yum (>= 0.0.0)
   selinux (0.8.0)
-  yum (3.2.2)

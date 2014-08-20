@@ -1,6 +1,6 @@
 source "https://api.berkshelf.com"
 
-%w( hosts cron package ).each do |type|
+%w( hosts cron ).each do |type|
   cookbook type, path: "./site-cookbooks/#{type}"
 end
 

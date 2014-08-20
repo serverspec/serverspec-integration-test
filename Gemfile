@@ -1,2 +1,6 @@
 source 'https://rubygems.org'
-gem 'itamae', :github => 'mizzy/itamae', :branch => 'link-resource'
+gem 'itamae', :github => 'ryotarai/itamae', :branch => 'master'
+
+path = Pathname.new("Gemfile.local")
+eval(path.read) if path.exist?
+
