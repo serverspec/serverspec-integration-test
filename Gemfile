@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'itamae', :github => 'mizzy/itamae', :branch => 'call-specinfra-in-service-resource'
+gem 'itamae', :github => 'mizzy/itamae', :branch => 'update-file-related-things'
 
 path = Pathname.new("Gemfile.local")
 eval(path.read) if path.exist?

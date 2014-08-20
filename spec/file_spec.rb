@@ -65,7 +65,7 @@ end
 
 describe file('/tmp/wercker.yml') do
   before do
-    Specinfra::Runner.copy_file('wercker.yml', '/tmp/wercker.yml')
+    Specinfra::Runner.send_file('wercker.yml', '/tmp/wercker.yml')
   end
   it { should be_file }
 end
