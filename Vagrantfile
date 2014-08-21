@@ -4,7 +4,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.omnibus.chef_version = :latest
 
   config.vm.provision 'chef_solo' do |chef|
-    chef.add_recipe 'hosts'
     chef.add_recipe 'cron'
     chef.add_recipe 'selinux::disabled'
   end

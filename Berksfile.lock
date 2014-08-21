@@ -1,13 +1,8 @@
 DEPENDENCIES
   cron
     path: site-cookbooks/cron
-  hosts
-    path: site-cookbooks/hosts
   selinux
 
 GRAPH
   cron (0.0.1)
-  hosts (0.1.0)
-    hostsfile (>= 0.0.0)
-  hostsfile (2.4.4)
   selinux (0.8.0)
