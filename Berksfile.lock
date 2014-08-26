@@ -1,8 +1,0 @@
-DEPENDENCIES
-  cron
-    path: site-cookbooks/cron
-  selinux
-
-GRAPH
-  cron (0.0.1)
-  selinux (0.8.0)

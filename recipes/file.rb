@@ -20,3 +20,8 @@ StartServers 100
 StartServers 5
 EOF
 end
+
+file '/tmp/hoge' do
+  action :delete
+end
+
