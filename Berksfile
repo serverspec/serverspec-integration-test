@@ -4,4 +4,3 @@ source "https://api.berkshelf.com"
   cookbook type, path: "./site-cookbooks/#{type}"
 end
 
-cookbook 'selinux'
