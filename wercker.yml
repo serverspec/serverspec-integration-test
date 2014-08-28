@@ -28,7 +28,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run itamae
-        code: bundle exec ./itamae.rb centos65
+        code: bundle exec itamae ssh --host centos65 --vagrant recipe.rb
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant reload centos65
@@ -44,7 +44,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run itamae
-        code: bundle exec ./itamae.rb centos70
+        code: bundle exec itamae ssh --host centos70 --vagrant recipe.rb
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant reload centos70
@@ -60,7 +60,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run itamae
-        code: bundle exec ./itamae.rb ubuntu1404
+        code: bundle exec itamae ssh --host ubuntu1410 --vagrant recipe.rb
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant reload ubuntu1404
