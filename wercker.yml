@@ -60,7 +60,7 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run itamae
-        code: bundle exec itamae ssh --host ubuntu1410 --vagrant recipe.rb
+        code: bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant reload ubuntu1404
