@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-version = Specinfra::Runner.get_package_version('dnsmasq').stdout
+version = backend.get_package_version('dnsmasq').stdout
 
 describe package('dnsmasq') do
   it { should     be_installed }
