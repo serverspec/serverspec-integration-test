@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-version = backend.get_package_version('chef').stdout
+version = Specinfra::Runner.get_package_version('dnsmasq').stdout
 
-describe package('chef') do
+describe package('dnsmasq') do
   it { should     be_installed }
   it { should     be_installed.with_version(version) }
   it { should_not be_installed.with_version('0.0.0.0') }
