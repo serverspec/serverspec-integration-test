@@ -1,17 +1,6 @@
 VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.omnibus.chef_version = :latest
-
-  config.vm.provision 'chef_solo' do |chef|
-    chef.add_recipe 'hosts'
-    chef.add_recipe 'file'
-    chef.add_recipe 'cron'
-    chef.add_recipe 'selinux::disabled'
-    chef.add_recipe 'package'
-    chef.add_recipe 'alias'
-  end
-
   config.vm.provider :digital_ocean do |provider, override|
     override.ssh.private_key_path = '~/.ssh/id_rsa'
     override.vm.box               = 'AndrewDryga/digital-ocean'
