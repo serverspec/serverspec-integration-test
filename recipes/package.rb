@@ -1,11 +1,10 @@
-case node['platform_family']
-when 'rhel', 'fedora'
-  include_recipe 'yum'
+case os[:family]
+when 'redhat', 'fedora'
   php_package = 'php'
 
   package('bind-utils') { action :install }
-when 'debian'
-  include_recipe 'apt'
+  package('net-tools') { action :install }
+when 'debian', 'ubuntu'
   php_package = 'php5'
 end
 

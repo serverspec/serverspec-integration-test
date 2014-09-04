@@ -27,16 +27,40 @@ build:
         code: vagrant up centos65 --provider=digital_ocean
         cwd: $WORKING_DIR
     - script:
+        name: Run itamae
+        code: bundle exec itamae ssh --host centos65 --vagrant recipe.rb
+        cwd: $WORKING_DIR
+    - script:
         name: Run vagrant reload centos65
         code: vagrant reload centos65
         cwd: $WORKING_DIR
     - script:
         name: Run rake spec:centos65
-        code: rake spec:centos65
+        code: DIGITALOCEAN=true rake spec:centos65
+        cwd: $WORKING_DIR
+    - script:
+        name: Run vagrant up centos70
+        code: vagrant up centos70 --provider=digital_ocean
+        cwd: $WORKING_DIR
+    - script:
+        name: Run itamae
+        code: bundle exec itamae ssh --host centos70 --vagrant recipe.rb
+        cwd: $WORKING_DIR
+    - script:
+        name: Run vagrant reload centos70
+        code: vagrant reload centos70
+        cwd: $WORKING_DIR
+    - script:
+        name: Run rake spec:centos70
+        code: DIGITALOCEAN=true rake spec:centos70
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant up ubuntu1404
         code: vagrant up ubuntu1404 --provider=digital_ocean
+        cwd: $WORKING_DIR
+    - script:
+        name: Run itamae
+        code: bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb
         cwd: $WORKING_DIR
     - script:
         name: Run vagrant reload ubuntu1404
@@ -44,17 +68,13 @@ build:
         cwd: $WORKING_DIR
     - script:
         name: Run rake spec:ubuntu1404
-        code: rake spec:ubuntu1404
+        code: DIGITALOCEAN=true rake spec:ubuntu1404
         cwd: $WORKING_DIR
 
   after-steps:
     - script:
-        name: Run vagrant destroy centos65
-        code: vagrant destroy centos65 --force
-        cwd: $WORKING_DIR
-    - script:
-        name: Run vagrant destroy ubuntu1404
-        code: vagrant destroy ubuntu1404 --force
+        name: Run vagrant destroy
+        code: vagrant destroy --force
         cwd: $WORKING_DIR
     - 1syo/idobata-notify@0.1.1:
         token: $IDOBATA_TOKEN
