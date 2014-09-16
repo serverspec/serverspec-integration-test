@@ -5,6 +5,7 @@ when 'redhat', 'fedora'
   package('bind-utils') { action :install }
   package('net-tools') { action :install }
 when 'debian', 'ubuntu'
+  execute 'apt-get update'
   php_package = 'php5'
 end
 
