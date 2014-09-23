@@ -1,10 +1,6 @@
 require 'spec_helper'
 
-if os[:family] == 'redhat' && os[:release].to_i == 7 && ENV['DIGITALOCEAN'] != 'true'
-  i = 'enp0s3'
-else
-  i = 'eth0'
-end
+i = Specinfra::Runner.run_command("ifconfig | head -1 | awk '{ print $1}' | sed -e 's/://'").stdout.strip
 
 speed  = Specinfra::Runner.get_interface_speed_of(i).stdout.strip.to_i
 ipaddr = Specinfra::Runner.run_command("ip addr show #{i} | grep 'inet ' | awk '{print $2}'").stdout.strip
