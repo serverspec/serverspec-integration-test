@@ -2,8 +2,8 @@ case os[:family]
 when 'redhat', 'fedora'
   php_package = 'php'
 
-  package('bind-utils') { action :install }
-  package('net-tools') { action :install }
+  package('bind-utils')
+  package('net-tools')
 when 'debian', 'ubuntu'
   execute 'apt-get update'
   php_package = 'php5'
