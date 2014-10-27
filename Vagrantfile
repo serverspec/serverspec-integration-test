@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :centos65 do |c|
     c.vm.box = 'chef/centos-6.5'
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = 'CentOS 6.5 x64'
+      provider.image = 'centos-6-5-x64'
     end
     c.vm.hostname  = 'centos65'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :centos70 do |c|
     c.vm.box = "chef/centos-7.0"
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = 'CentOS 7.0 x64'
+      provider.image = 'centos-7-0-x64'
     end
     c.vm.hostname  = 'centos70'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
@@ -38,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :ubuntu1404 do |c|
     c.vm.box = 'chef/ubuntu-14.04'
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = 'Ubuntu 14.04 x64'
+      provider.image = 'ubuntu-14-04-x64'
     end
     c.vm.hostname  = 'ubuntu1404'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
