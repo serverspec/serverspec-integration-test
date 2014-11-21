@@ -15,5 +15,5 @@ fi
 
 cd $WORKING_DIR
 
-bundle install
+bundle install   # ruby gems
 
