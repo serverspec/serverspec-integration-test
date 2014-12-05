@@ -25,3 +25,6 @@ file '/tmp/hoge' do
   action :delete
 end
 
+execute '/tmp/named.pipe' do
+  command 'mkfifo /tmp/named.pipe'
+end
