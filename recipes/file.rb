@@ -26,5 +26,5 @@ file '/tmp/hoge' do
 end
 
 execute '/var/tmp/named.pipe' do
-  command 'mkfifo /tmp/named.pipe'
+  command 'mkfifo /var/tmp/named.pipe'
 end
