@@ -25,7 +25,7 @@ describe file('/var/run/rpcbind.sock') do
   xit { should be_socket }
 end
 
-describe file('/tmp/named.pipe') do
+describe file('/var/tmp/named.pipe') do
   it { should be_pipe }
 end
 
