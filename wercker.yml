@@ -2,73 +2,11 @@ box: mizzy/serverspec-base@0.0.6
 build:
   steps:
     - script:
-        name: Make $HOME/.ssh directory
-        code: mkdir -p $HOME/.ssh
-    - create-file:
-        name: Put SSH public key
-        filename: $HOME/.ssh/id_rsa.pub
-        overwrite: true
-        hide-from-log: true
-        content: $DIGITALOCEAN_SSH_KEY_PUBLIC
-    - create-file:
-        name: Put SSH private key
-        filename: $HOME/.ssh/id_rsa
-        overwrite: true
-        hide-from-log: true
-        content: $DIGITALOCEAN_SSH_KEY_PRIVATE
-    - script:
-        name: Run chmod 0400 $HOME/.ssh/id_rsa
-        code: chmod 0400 $HOME/.ssh/id_rsa
-    - script:
         name: Run setup.sh
         code: $WORKING_DIR/setup.sh
     - script:
-        name: Run vagrant up centos65
-        code: vagrant up centos65 --provider=digital_ocean
-        cwd: $WORKING_DIR
-    - script:
-        name: Run itamae
-        code: bundle exec itamae ssh --host centos65 --vagrant recipe.rb
-        cwd: $WORKING_DIR
-    - script:
-        name: Run vagrant reload centos65
-        code: vagrant reload centos65
-        cwd: $WORKING_DIR
-    - script:
-        name: Run rake spec:centos65
-        code: DIGITALOCEAN=true rake spec:centos65
-        cwd: $WORKING_DIR
-    - script:
-        name: Run vagrant up centos70
-        code: vagrant up centos70 --provider=digital_ocean
-        cwd: $WORKING_DIR
-    - script:
-        name: Run itamae
-        code: bundle exec itamae ssh --host centos70 --vagrant recipe.rb
-        cwd: $WORKING_DIR
-    - script:
-        name: Run vagrant reload centos70
-        code: vagrant reload centos70
-        cwd: $WORKING_DIR
-    - script:
-        name: Run rake spec:centos70
-        code: DIGITALOCEAN=true rake spec:centos70
-        cwd: $WORKING_DIR
-    - script:
-        name: Run vagrant up ubuntu1404
-        code: vagrant up ubuntu1404 --provider=digital_ocean
-        cwd: $WORKING_DIR
-    - script:
-        name: Run itamae
-        code: bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb
-        cwd: $WORKING_DIR
-    - script:
-        name: Run vagrant reload ubuntu1404
-        code: vagrant reload ubuntu1404
-        cwd: $WORKING_DIR
-    - script:
-        name: Run rake spec:ubuntu1404
-        code: DIGITALOCEAN=true rake spec:ubuntu1404
+        name: Run walter
+        code: ./walter
         cwd: $WORKING_DIR
 
   after-steps:
