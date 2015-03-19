@@ -2,9 +2,6 @@ box: mizzy/serverspec-base@0.0.6
 build:
   steps:
     - script:
-        name: Run setup.sh
-        code: $WORKING_DIR/setup.sh
-    - script:
         name: Run walter
         code: ./walter
         cwd: $WORKING_DIR
