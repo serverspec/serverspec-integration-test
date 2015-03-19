@@ -1,7 +1,7 @@
 pipeline:
   - name: setup
     type: command
-    code: $WORKING_DIR/setup.sh
+    command: $WORKING_DIR/setup.sh
     only_if: test "$WERCKER" = "true"
   - name: Make $HOME/.ssh directory
     type: command
