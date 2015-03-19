@@ -10,9 +10,5 @@ build:
         cwd: $WORKING_DIR
 
   after-steps:
-    - script:
-        name: Run vagrant destroy
-        code: vagrant destroy --force
-        cwd: $WORKING_DIR
     - 1syo/idobata-notify@0.1.1:
         token: $IDOBATA_TOKEN

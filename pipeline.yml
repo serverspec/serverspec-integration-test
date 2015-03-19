@@ -1,4 +1,8 @@
 pipeline:
+  - name: setup
+    type: command
+    code: $WORKING_DIR/setup.sh
+    only_if: test "$WERCKER" = "true"
   - name: Make $HOME/.ssh directory
     type: command
     command: mkdir -p $HOME/.ssh
@@ -51,3 +55,6 @@ pipeline:
   - name: Run rake spec:ubuntu1404
     type: command
     command: DIGITALOCEAN=true rake spec:ubuntu1404
+cleanup:
+  - name: vagrant destroy
+    command: vagrant destroy --force
