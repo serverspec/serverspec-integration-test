@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: Run walter
-        code: ./walter
+        code: ./$WORKING_DIR/walter -c ./$WORKING_DIR/pipeline.yml
 
   after-steps:
     - 1syo/idobata-notify@0.1.1:
