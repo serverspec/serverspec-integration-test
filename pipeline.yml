@@ -22,39 +22,52 @@ pipeline:
   - name: Run vagrant up centos65
     type: command
     command: vagrant up centos65 --provider=digital_ocean
+    directory: $WORKING_DIR
   - name: Run itamae
     type: command
     command: bundle exec itamae ssh --host centos65 --vagrant recipe.rb
+    directory: $WORKING_DIR
   - name: Run vagrant reload centos65
     type: command
     command: vagrant reload centos65
+    directory: $WORKING_DIR
   - name: Run rake spec:centos65
     type: command
     command: DIGITALOCEAN=true rake spec:centos65
+    directory: $WORKING_DIR
   - name: Run vagrant up centos70
     type: command
     command: vagrant up centos70 --provider=digital_ocean
+    directory: $WORKING_DIR
   - name: Run itamae
     type: command
     command: bundle exec itamae ssh --host centos70 --vagrant recipe.rb
+    directory: $WORKING_DIR
   - name: Run vagrant reload centos70
     type: command
     command: vagrant reload centos70
+    directory: $WORKING_DIR
   - name: Run rake spec:centos70
     type: command
     command: DIGITALOCEAN=true rake spec:centos70
+    directory: $WORKING_DIR
   - name: Run vagrant up ubuntu1404
     type: command
     command: vagrant up ubuntu1404 --provider=digital_ocean
+    directory: $WORKING_DIR
   - name: Run itamae
     type: command
     command: bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb
+    directory: $WORKING_DIR
   - name: Run vagrant reload ubuntu1404
     type: command
     command: vagrant reload ubuntu1404
+    directory: $WORKING_DIR
   - name: Run rake spec:ubuntu1404
     type: command
     command: DIGITALOCEAN=true rake spec:ubuntu1404
+    directory: $WORKING_DIR
 cleanup:
   - name: vagrant destroy
     command: vagrant destroy --force
+    directory: $WORKING_DIR

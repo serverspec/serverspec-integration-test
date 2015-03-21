@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd $WORKING_DIR
-
 if [ $WERCKER_GIT_REPOSITORY = 'specinfra' ]; then
   rake build
   sudo gem install pkg/specinfra-*.gem --no-ri --no-rdoc
@@ -15,5 +13,5 @@ else
   sudo gem install serverspec --pre --no-ri --no-rdoc
 fi
 
-bundle install --path=vendor/bundle
+bundle install
 
