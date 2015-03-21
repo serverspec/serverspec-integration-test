@@ -13,5 +13,6 @@ else
   sudo gem install serverspec --pre --no-ri --no-rdoc
 fi
 
+cd $WORKING_DIR
 bundle install
 
