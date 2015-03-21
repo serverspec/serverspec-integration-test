@@ -13,5 +13,5 @@ else
   sudo gem install serverspec --pre --no-ri --no-rdoc
 fi
 
-bundle install
+bundle install --path=vendor/bundle
 
