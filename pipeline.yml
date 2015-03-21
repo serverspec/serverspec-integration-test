@@ -54,7 +54,7 @@ pipeline:
     command: vagrant reload ubuntu1404
   - name: Run rake spec:ubuntu1404
     type: command
-    command: DIGITALOCEAN=true bundle exec rake spec:ubuntu1404
+    command: DIGITALOCEAN=true rake spec:ubuntu1404
 cleanup:
   - name: vagrant destroy
     command: vagrant destroy --force
