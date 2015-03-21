@@ -1,9 +1,8 @@
 pipeline:
   - name: setup
     type: command
-    command: ./setup.sh
+    command: $WORKING_DIR/setup.sh
     only_if: test "$WERCKER" = "true"
-    directory: $WORKING_DIR
   - name: Make $HOME/.ssh directory
     type: command
     command: mkdir -p $HOME/.ssh
