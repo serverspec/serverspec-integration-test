@@ -1,4 +1,4 @@
-if os[:family] == 'redhat'
+if node[:platform] == 'redhat'
   file '/var/spool/cron/root' do
     content "* * * * * ls /tmp\n"
   end
@@ -8,7 +8,7 @@ if os[:family] == 'redhat'
   end
 end
 
-if os[:family] == 'ubuntu'
+if node[:platform] == 'ubuntu'
   file '/var/spool/cron/crontabs/root' do
     content "* * * * * ls /tmp\n"
   end
