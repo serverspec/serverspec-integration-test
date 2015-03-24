@@ -1,4 +1,4 @@
-case node[:platfom]
+case node[:platform]
 when 'redhat', 'fedora'
   php_package = 'php'
 

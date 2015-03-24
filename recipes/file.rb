@@ -27,4 +27,5 @@ end
 
 execute '/var/tmp/named.pipe' do
   command 'mkfifo /var/tmp/named.pipe'
+  not_if 'test -p /var/tmp/named.pipe'
 end
