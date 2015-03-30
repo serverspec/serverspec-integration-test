@@ -19,63 +19,24 @@ pipeline:
     type: command
     command: chmod 600 $HOME/.ssh/id_rsa
     only_if: test "$WERCKER" = "true"
-  - name: Run vagrant up coreos
-    type: command
-    command: vagrant up coreos --provider=digital_ocean
-    only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
-  - name: Run apply-itamae-and-serverspec-to-docker.sh
-    type: command
-    command: ./apply-itamae-and-serverspec-to-docker.sh
-    directory: $WORKING_DIR
-    only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
-  - name: Run vagrant up centos65
-    type: command
-    command: vagrant up centos65 --provider=digital_ocean
-    directory: $WORKING_DIR
-  - name: Run itamae
-    type: command
-    command: bundle exec itamae ssh --host centos65 --vagrant recipe.rb
-    directory: $WORKING_DIR
-  - name: Run vagrant reload centos65
-    type: command
-    command: vagrant reload centos65
-    directory: $WORKING_DIR
-  - name: Run rake spec:centos65
-    type: command
-    command: DIGITALOCEAN=true rake spec:centos65
-    directory: $WORKING_DIR
-  - name: Run vagrant up centos70
-    type: command
-    command: vagrant up centos70 --provider=digital_ocean
-    directory: $WORKING_DIR
-  - name: Run itamae
-    type: command
-    command: bundle exec itamae ssh --host centos70 --vagrant recipe.rb
-    directory: $WORKING_DIR
-  - name: Run vagrant reload centos70
-    type: command
-    command: vagrant reload centos70
-    directory: $WORKING_DIR
-  - name: Run rake spec:centos70
-    type: command
-    command: DIGITALOCEAN=true rake spec:centos70
-    directory: $WORKING_DIR
-  - name: Run vagrant up ubuntu1404
-    type: command
-    command: vagrant up ubuntu1404 --provider=digital_ocean
-    directory: $WORKING_DIR
-  - name: Run itamae
-    type: command
-    command: bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb
-    directory: $WORKING_DIR
-  - name: Run vagrant reload ubuntu1404
-    type: command
-    command: vagrant reload ubuntu1404
-    directory: $WORKING_DIR
-  - name: Run rake spec:ubuntu1404
-    type: command
-    command: DIGITALOCEAN=true rake spec:ubuntu1404
-    directory: $WORKING_DIR
+    run_after:
+      - name: Test coreos
+        type: command
+        directory: $WORKING_DIR
+        command: vagrant up coreos --provider=digital_ocean && ./apply-itamae-and-serverspec-to-docker.sh
+        only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
+      - name: Test centos65
+        type: command
+        command: vagrant up centos65 --provider=digital_ocean && bundle exec itamae ssh --host centos65 --vagrant recipe.rb && vagrant reload centos65 && DIGITALOCEAN=true rake spec:centos65
+        directory: $WORKING_DIR
+      - name: Test centos70
+        type: command
+        command: vagrant up centos70 --provider=digital_ocean && bundle exec itamae ssh --host centos70 --vagrant recipe.rb && vagrant reload centos70 && DIGITALOCEAN=true rake spec:centos70
+        directory: $WORKING_DIR
+      - name: Test ubuntu1404
+        type: command
+        command: vagrant up ubuntu1404 --provider=digital_ocean && bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb && vagrant reload ubuntu1404 && DIGITALOCEAN=true rake spec:ubuntu1404
+        directory: $WORKING_DIR
 cleanup:
   - name: vagrant destroy
     command: vagrant destroy --force
