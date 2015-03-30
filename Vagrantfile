@@ -49,5 +49,8 @@ Vagrant.configure('2') do |config|
     end
     c.vm.hostname  = 'coreos'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+    c.vm.provision :shell do |shell|
+      shell.path = 'coreos-provision.sh'
+    end
   end
 end

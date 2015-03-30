@@ -19,6 +19,15 @@ pipeline:
     type: command
     command: chmod 600 $HOME/.ssh/id_rsa
     only_if: test "$WERCKER" = "true"
+  - name: Run vagrant up coreos
+    type: command
+    command: vagrant up coreos --provider=digital_ocean
+    only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
+  - name: Run apply-itamae-and-serverspec-to-docker.sh
+    type: command
+    command: ./apply-itamae-and-serverspec-to-docker.sh
+    directory: $WORKING_DIR
+    only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
   - name: Run vagrant up centos65
     type: command
     command: vagrant up centos65 --provider=digital_ocean

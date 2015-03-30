@@ -2,4 +2,6 @@
 cookbooks
 Gemfile.lock
 Gemfile.local
+vendor
+.bundle
 

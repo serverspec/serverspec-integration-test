@@ -33,10 +33,12 @@ service 'memcached' do
   action [ :enable, :start ]
 end
 
-package 'dnsmasq' do
-  action :install
-end
+if node[:virtualization][:system] != 'docker'
+  package 'dnsmasq' do
+    action :install
+  end
 
-service 'dnsmasq' do
-  action [ :enable, :start ]
+  service 'dnsmasq' do
+    action [ :enable, :start ]
+  end
 end
