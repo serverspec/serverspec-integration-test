@@ -19,21 +19,22 @@ pipeline:
     type: command
     command: chmod 600 $HOME/.ssh/id_rsa
     only_if: test "$WERCKER" = "true"
-    run_after:
-      - name: Test coreos
+  - name: Parallel builds each OSes
+    parallel:
+      - name: Build CoreOS
         type: command
         directory: $WORKING_DIR
         command: vagrant up coreos --provider=digital_ocean && ./apply-itamae-and-serverspec-to-docker.sh
         only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
-      - name: Test centos65
+      - name: Build CentOS 6.5
         type: command
         command: vagrant up centos65 --provider=digital_ocean && bundle exec itamae ssh --host centos65 --vagrant recipe.rb && vagrant reload centos65 && DIGITALOCEAN=true rake spec:centos65
         directory: $WORKING_DIR
-      - name: Test centos70
+      - name: Build CentOS 7.0
         type: command
         command: vagrant up centos70 --provider=digital_ocean && bundle exec itamae ssh --host centos70 --vagrant recipe.rb && vagrant reload centos70 && DIGITALOCEAN=true rake spec:centos70
         directory: $WORKING_DIR
-      - name: Test ubuntu1404
+      - name: Build Ubuntu 14.04
         type: command
         command: vagrant up ubuntu1404 --provider=digital_ocean && bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb && vagrant reload ubuntu1404 && DIGITALOCEAN=true rake spec:ubuntu1404
         directory: $WORKING_DIR
