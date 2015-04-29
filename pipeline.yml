@@ -46,4 +46,4 @@ messenger:
   type: slack
   channel: serverspec
   url: $SLACK_WEBHOOK_URL
-  icon: https://avatars2.githubusercontent.com/u/3970679?v=3&s=200
+  icon: :ghost:
