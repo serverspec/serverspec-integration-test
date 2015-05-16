@@ -28,15 +28,15 @@ pipeline:
         only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
       - name: Build CentOS 6.5
         type: command
-        command: vagrant up centos65 --provider=digital_ocean && bundle exec itamae ssh --host centos65 --vagrant recipe.rb && vagrant reload centos65 && DIGITALOCEAN=true rake spec:centos65
+        command: vagrant up centos65 --provider=digital_ocean && bundle exec itamae ssh --host centos65 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos65
         directory: $WORKING_DIR
       - name: Build CentOS 7.0
         type: command
-        command: vagrant up centos70 --provider=digital_ocean && bundle exec itamae ssh --host centos70 --vagrant recipe.rb && vagrant reload centos70 && DIGITALOCEAN=true rake spec:centos70
+        command: vagrant up centos70 --provider=digital_ocean && bundle exec itamae ssh --host centos70 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos70
         directory: $WORKING_DIR
       - name: Build Ubuntu 14.04
         type: command
-        command: vagrant up ubuntu1404 --provider=digital_ocean && bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb && vagrant reload ubuntu1404 && DIGITALOCEAN=true rake spec:ubuntu1404
+        command: vagrant up ubuntu1404 --provider=digital_ocean && bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:ubuntu1404
         directory: $WORKING_DIR
 cleanup:
   - name: vagrant destroy
