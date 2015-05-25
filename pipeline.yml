@@ -46,4 +46,4 @@ messenger:
   type: slack
   channel: serverspec
   url: $SLACK_WEBHOOK_URL
-  icon: ":ghost:"
+  icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
