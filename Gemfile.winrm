@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+case ENV['APPVEYOR_REPO_NAME'].split("/").last
+when "specinfra"
+  gem "specinfra", path: "../../"
+  gem "serverspec", github: "serverspec/serverspec"
+when "serverspec"
+  gem "specinfra", github: "serverspec/specinfra"
+  gem "serverspec", path: "../../"
+else
+  gem "specinfra", github: "serverspec/specinfra"
+  gem "serverspec", github: "serverspec/serverspec"
+end
+
+gem 'winrm'
