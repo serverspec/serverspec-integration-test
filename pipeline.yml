@@ -40,7 +40,7 @@ pipeline:
         directory: $WORKING_DIR
       - name: Build FreeBSD 10.1
         type: command
-        command: vagrant up freebsd --provider=digital_ocean --no-provision && DIGITALOCEAN=true rake spec:freebsd
+        command: vagrant up freebsd --provider=digital_ocean && DIGITALOCEAN=true rake spec:freebsd
         directory: $WORKING_DIR
 cleanup:
   - name: vagrant destroy

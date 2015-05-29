@@ -48,6 +48,7 @@ Vagrant.configure('2') do |config|
     c.ssh.shell = '/bin/sh'
     c.vm.hostname  = 'freebsd'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+    c.vm.synced_folder '.', '/vagrant', disabled: true
   end
 
   config.vm.define 'coreos' do |c|
