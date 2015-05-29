@@ -40,6 +40,16 @@ Vagrant.configure('2') do |config|
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
+  config.vm.define :freebsd do |c|
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = 'freebsd-10-1-x64'
+    end
+    c.ssh.username = 'freebsd'
+    c.ssh.shell = '/bin/sh'
+    c.vm.hostname  = 'freebsd'
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
   config.vm.define 'coreos' do |c|
     c.ssh.username = 'core'
     c.vm.provider :digital_ocean do |provider, override|

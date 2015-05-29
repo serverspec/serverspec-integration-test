@@ -38,6 +38,10 @@ pipeline:
         type: command
         command: vagrant up ubuntu1404 --provider=digital_ocean && bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:ubuntu1404
         directory: $WORKING_DIR
+      - name: Build FreeBSD 10.1
+        type: command
+        command: vagrant up freebsd --provider=digital_ocean && bundle exec itamae ssh --host freebsd --vagrant recipe.rb && DIGITALOCEAN=true rake spec:freebsd
+        directory: $WORKING_DIR
 cleanup:
   - name: vagrant destroy
     command: vagrant destroy --force

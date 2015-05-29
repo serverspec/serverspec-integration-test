@@ -15,4 +15,10 @@ namespace :spec do
       t.pattern = "spec/*_spec.rb"
     end
   end
+
+  RSpec::Core::RakeTask.new(:freebsd) do |t|
+    puts "Running tests to freebsd ..."
+    ENV["TARGET_HOST"] = 'freebsd'
+    t.pattern = "spec/freebsd/*_spec.rb"
+  end
 end
