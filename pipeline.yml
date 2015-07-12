@@ -37,9 +37,9 @@ cleanup:
   - name: vagrant destroy
     command: vagrant destroy --force
     directory: $WORKING_DIR
-#messenger:
-#  type: slack
-#  channel: serverspec
-#  url: $SLACK_WEBHOOK_URL
-#  icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
-#  username: Walter
+messenger:
+  type: slack
+  channel: serverspec
+  url: $SLACK_WEBHOOK_URL
+  icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
+  username: Walter
