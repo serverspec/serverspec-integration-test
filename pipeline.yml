@@ -1,3 +1,10 @@
+require:
+  - ./coreos.yml
+  - ./centos65.yml
+  - ./centos70.yml
+  - ./ubuntu1404.yml
+  - ./freebsd101.yml
+
 pipeline:
   - name: setup
     type: command
@@ -21,34 +28,18 @@ pipeline:
     only_if: test "$WERCKER" = "true"
   - name: Parallel builds each OSes
     parallel:
-      - name: Build CoreOS
-        type: command
-        directory: $WORKING_DIR
-        command: vagrant up coreos --provider=digital_ocean && ./apply-itamae-and-serverspec-to-docker.sh
-        only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
-      - name: Build CentOS 6.5
-        type: command
-        command: vagrant up centos65 --provider=digital_ocean && bundle exec itamae ssh --host centos65 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos65
-        directory: $WORKING_DIR
-      - name: Build CentOS 7.0
-        type: command
-        command: vagrant up centos70 --provider=digital_ocean && bundle exec itamae ssh --host centos70 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos70
-        directory: $WORKING_DIR
-      - name: Build Ubuntu 14.04
-        type: command
-        command: vagrant up ubuntu1404 --provider=digital_ocean && bundle exec itamae ssh --host ubuntu1404 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:ubuntu1404
-        directory: $WORKING_DIR
-      - name: Build FreeBSD 10.1
-        type: command
-        command: vagrant up freebsd --provider=digital_ocean && DIGITALOCEAN=true rake spec:freebsd
-        directory: $WORKING_DIR
+      - call: coreos::build
+      - call: centos65::build
+      - call: centos70::build
+      - call: ubuntu1404::build
+      - call: freebsd101::build
 cleanup:
   - name: vagrant destroy
     command: vagrant destroy --force
     directory: $WORKING_DIR
-messenger:
-  type: slack
-  channel: serverspec
-  url: $SLACK_WEBHOOK_URL
-  icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
-  username: Walter
+#messenger:
+#  type: slack
+#  channel: serverspec
+#  url: $SLACK_WEBHOOK_URL
+#  icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
+#  username: Walter

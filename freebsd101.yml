@@ -1,0 +1,8 @@
+namespace: freebsd101
+
+stages:
+  - def:
+      name: build
+      type: command
+      command: vagrant up freebsd --provider=digital_ocean && DIGITALOCEAN=true rake spec:freebsd
+      directory: $WORKING_DIR
