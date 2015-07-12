@@ -1,9 +1,9 @@
 require:
-  - ./coreos.yml
-  - ./centos65.yml
-  - ./centos70.yml
-  - ./ubuntu1404.yml
-  - ./freebsd101.yml
+  - $WORKING_DIR/coreos.yml
+  - $WORKING_DIR/centos65.yml
+  - $WORKING_DIR/centos70.yml
+  - $WORKING_DIR/ubuntu1404.yml
+  - $WORKING_DIR/freebsd101.yml
 
 pipeline:
   - name: setup
