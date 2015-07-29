@@ -3,13 +3,13 @@ source 'https://rubygems.org'
 case ENV['APPVEYOR_REPO_NAME'].split("/").last
 when "specinfra"
   gem "specinfra", path: "../../"
-  gem "serverspec", github: "serverspec/serverspec"
+  gem "serverspec", github: "mizzy/serverspec"
 when "serverspec"
-  gem "specinfra", github: "serverspec/specinfra"
+  gem "specinfra", github: "mizzy/specinfra"
   gem "serverspec", path: "../../"
 else
-  gem "specinfra", github: "serverspec/specinfra"
-  gem "serverspec", github: "serverspec/serverspec"
+  gem "specinfra", github: "mizzy/specinfra"
+  gem "serverspec", github: "mizzy/serverspec"
 end
 
 gem 'winrm'
