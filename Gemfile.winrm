@@ -13,3 +13,7 @@ else
 end
 
 gem 'winrm'
+
+if RbConfig::CONFIG['MAJOR'] == "1"
+  gem 'net-ssh', "< 3.0"
+end
