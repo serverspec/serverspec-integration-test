@@ -25,7 +25,7 @@ Vagrant.configure('2') do |config|
   config.vm.define :centos72 do |c|
     c.vm.box = "bento/centos-7.2"
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = 'centos-7-2-x64'
+      provider.image = 'centos-7-x64'
     end
     c.vm.hostname  = 'centos72'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
