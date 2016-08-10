@@ -1,8 +1,0 @@
-namespace: centos70
-
-stages:
-  - def:
-      name: build
-      type: command
-      command: vagrant up centos70 --provider=digital_ocean && bundle exec itamae ssh --host centos70 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos70
-      directory: $WORKING_DIR

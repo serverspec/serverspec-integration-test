@@ -1,7 +1,7 @@
 require:
   - $WORKING_DIR/coreos.yml
   - $WORKING_DIR/centos65.yml
-  - $WORKING_DIR/centos70.yml
+  - $WORKING_DIR/centos72.yml
   - $WORKING_DIR/ubuntu1404.yml
   - $WORKING_DIR/freebsd101.yml
 
@@ -30,7 +30,7 @@ pipeline:
     parallel:
       - call: coreos::build
       - call: centos65::build
-      - call: centos70::build
+      - call: centos72::build
       - call: ubuntu1404::build
       - call: freebsd101::build
 cleanup:
