@@ -12,7 +12,7 @@ else
   gem "serverspec", github: "mizzy/serverspec"
 end
 
-gem 'winrm'
+gem 'winrm', "< 2.0"
 
 if RbConfig::CONFIG['MAJOR'] == "1"
   gem 'net-ssh', "< 3.0"
