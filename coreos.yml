@@ -1,4 +1,4 @@
-- name: build
+- name: coreos
   directory: $WORKING_DIR
   command: vagrant up coreos --provider=digital_ocean && ./apply-itamae-and-serverspec-to-docker.sh
   only_if: test "$WERCKER_GIT_REPOSITORY" != "serverspec"
