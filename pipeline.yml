@@ -27,7 +27,7 @@ build:
       command: vagrant destroy --force
       directory: $WORKING_DIR
 
-nofity:
+notify:
   - type: slack
     channel: serverspec
     url: $SLACK_WEBHOOK_URL
