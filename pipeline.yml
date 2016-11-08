@@ -28,8 +28,8 @@ build:
       directory: $WORKING_DIR
 
 nofity:
-  type: slack
-  channel: serverspec
-  url: $SLACK_WEBHOOK_URL
-  icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
-  username: Walter
+  - type: slack
+    channel: serverspec
+    url: $SLACK_WEBHOOK_URL
+    icon_url: https://raw.githubusercontent.com/serverspec/serverspec-integration-test/master/walter.png
+    username: Walter
