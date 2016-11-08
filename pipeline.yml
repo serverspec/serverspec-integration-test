@@ -1,43 +1,33 @@
-require:
-  - $WORKING_DIR/coreos.yml
-  - $WORKING_DIR/centos65.yml
-  - $WORKING_DIR/centos72.yml
-  - $WORKING_DIR/ubuntu1404.yml
-  - $WORKING_DIR/freebsd101.yml
+build:
+  tasks:
+    - name: setup
+      command: $WORKING_DIR/setup.sh
+      only_if: test "$WERCKER" = "true"
+    - name: Make $HOME/.ssh directory
+      command: mkdir -p $HOME/.ssh
+      only_if: test "$WERCKER" = "true"
+    - name: Put SSH publick key
+      command: echo "$DIGITALOCEAN_SSH_KEY_PUBLIC" > $HOME/.ssh/id_rsa.pub
+      only_if: test "$WERCKER" = "true"
+    - name: Put SSH private key
+      command: echo $DIGITALOCEAN_SSH_KEY_PRIVATE > $HOME/.ssh/id_rsa
+      only_if: test "$WERCKER" = "true"
+    - name: chmod 600 $HOME/.ssh/id_rsa
+      command: chmod 600 $HOME/.ssh/id_rsa
+      only_if: test "$WERCKER" = "true"
+    - name: Parallel builds each OSes
+      parallel:
+      - include: coreos.yml
+      - include: centos65.yml
+      - include: centos72.yml
+      - include: ubuntu1404.yml
+      - include: freebsd101.yml
+  cleanup:
+    - name: vagrant destroy
+      command: vagrant destroy --force
+      directory: $WORKING_DIR
 
-pipeline:
-  - name: setup
-    type: command
-    command: $WORKING_DIR/setup.sh
-    only_if: test "$WERCKER" = "true"
-  - name: Make $HOME/.ssh directory
-    type: command
-    command: mkdir -p $HOME/.ssh
-    only_if: test "$WERCKER" = "true"
-  - name: Put SSH publick key
-    type: command
-    command: echo "$DIGITALOCEAN_SSH_KEY_PUBLIC" > $HOME/.ssh/id_rsa.pub
-    only_if: test "$WERCKER" = "true"
-  - name: Put SSH private key
-    type: command
-    command: echo $DIGITALOCEAN_SSH_KEY_PRIVATE > $HOME/.ssh/id_rsa
-    only_if: test "$WERCKER" = "true"
-  - name: chmod 600 $HOME/.ssh/id_rsa
-    type: command
-    command: chmod 600 $HOME/.ssh/id_rsa
-    only_if: test "$WERCKER" = "true"
-  - name: Parallel builds each OSes
-    parallel:
-      - call: coreos::build
-      - call: centos65::build
-      - call: centos72::build
-      - call: ubuntu1404::build
-      - call: freebsd101::build
-cleanup:
-  - name: vagrant destroy
-    command: vagrant destroy --force
-    directory: $WORKING_DIR
-messenger:
+nofity:
   type: slack
   channel: serverspec
   url: $SLACK_WEBHOOK_URL
