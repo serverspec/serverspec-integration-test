@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: Run walter
-        code: ./$WORKING_DIR/walter -c ./$WORKING_DIR/pipeline.yml
+        code: ./$WORKING_DIR/walter -config ./$WORKING_DIR/pipeline.yml -build
   after-steps:
     - wantedly/pretty-slack-notify:
         webhook_url: $SLACK_WEBHOOK_URL
