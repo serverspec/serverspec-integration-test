@@ -17,11 +17,11 @@ build:
       only_if: test "$WERCKER" = "true"
     - name: Parallel builds each OSes
       parallel:
-      - include: coreos.yml
-      - include: centos65.yml
-      - include: centos72.yml
-      - include: ubuntu1404.yml
-      - include: freebsd101.yml
+      - include: $WORKING_DIR/coreos.yml
+      - include: $WORKING_DIR/centos65.yml
+      - include: $WORKING_DIR/centos72.yml
+      - include: $WORKING_DIR/ubuntu1404.yml
+      - include: $WORKING_DIR/freebsd101.yml
   cleanup:
     - name: vagrant destroy
       command: vagrant destroy --force
