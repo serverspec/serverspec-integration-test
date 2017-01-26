@@ -42,7 +42,7 @@ Vagrant.configure('2') do |config|
 
   config.vm.define :freebsd do |c|
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = 'freebsd-10-1-x64'
+      provider.image = 'freebsd-10-3-x64'
     end
     c.ssh.username = 'freebsd'
     c.ssh.shell = '/bin/sh'
