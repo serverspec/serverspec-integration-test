@@ -1,5 +1,6 @@
-box: mizzy/serverspec-base@0.0.6
 build:
+  box:
+    id: mizzy/wercker-serverspec
   steps:
     - script:
         name: Run walter

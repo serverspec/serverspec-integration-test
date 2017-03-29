@@ -4,4 +4,4 @@ Gemfile.lock
 Gemfile.local
 vendor
 .bundle
-
+.wercker
