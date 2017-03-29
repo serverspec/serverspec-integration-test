@@ -5,3 +5,5 @@ Gemfile.local
 vendor
 .bundle
 .wercker
+wercker.env
+
