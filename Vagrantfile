@@ -11,6 +11,7 @@ Vagrant.configure('2') do |config|
     else
       provider.ssh_key_name = 'local'
     end
+    override.nfs.functional = false
   end
 
   config.vm.define :centos65 do |c|
