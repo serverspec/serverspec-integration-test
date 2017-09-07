@@ -41,6 +41,15 @@ Vagrant.configure('2') do |config|
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
+  config.vm.define :ubuntu1604 do |c|
+    c.vm.box = 'chef/ubuntu-16.04'
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = 'ubuntu-16-04-x64'
+    end
+    c.vm.hostname  = 'ubuntu1604'
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
   config.vm.define :freebsd do |c|
     c.vm.provider :digital_ocean do |provider, override|
       provider.image = 'freebsd-10-3-x64'

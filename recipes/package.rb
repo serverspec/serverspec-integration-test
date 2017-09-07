@@ -6,7 +6,11 @@ when 'redhat', 'fedora'
   package('net-tools')
 when 'debian', 'ubuntu'
   execute 'apt-get update'
-  php_package = 'php5'
+  if node[:platform_version].to_i > 14
+    php_package = 'php'
+  else
+    php_package = 'php5'
+  end
 end
 
 package 'ethtool' do

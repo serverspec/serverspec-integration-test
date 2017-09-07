@@ -1,0 +1,3 @@
+  - name: ubuntu1604
+    command: vagrant up ubuntu1604 --provider=digital_ocean && bundle exec itamae ssh --no-color --host ubuntu1604 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:ubuntu1604
+    directory: $WORKING_DIR

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-if os[:family] == 'redhat' && os[:release].to_i == 7
+if ( os[:family] == 'redhat' && os[:release].to_i == 7 ) || ( os[:family] == 'ubuntu' && os[:release].to_i > 14 )
   p = 'systemd'
 else
   p = 'init'
