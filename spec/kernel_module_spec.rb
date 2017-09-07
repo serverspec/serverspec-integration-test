@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-Specinfra::Runner.run_command('modprobe drm')
-
-describe kernel_module('drm') do
+describe kernel_module('ip_tables') do
   it { should be_loaded }
 end
