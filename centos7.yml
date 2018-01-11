@@ -1,0 +1,3 @@
+  - name: centos7
+    command: vagrant up centos7 --provider=digital_ocean && bundle exec itamae ssh  --no-color --host centos7 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos7
+    directory: $WORKING_DIR

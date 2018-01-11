@@ -1,0 +1,3 @@
+- name: centos6
+  command: vagrant up centos6 --provider=digital_ocean && bundle exec itamae ssh  --no-color --host centos6 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos6
+  directory: $WORKING_DIR
