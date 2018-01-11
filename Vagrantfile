@@ -18,7 +18,7 @@ Vagrant.configure('2') do |config|
   config.vm.define :centos6 do |c|
     c.vm.box = 'chef/centos-6.9'
     c.vm.provider :digital_ocean do |provider, override|
-      provider.image = 'centos-6-9-x64'
+      provider.image = 'centos-6-x64'
     end
     c.vm.hostname  = 'centos6'
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
