@@ -17,8 +17,8 @@ build:
       only_if: test "$WERCKER" = "true"
     - name: Parallel builds each OSes
       parallel:
-      - include: $WORKING_DIR/centos65.yml
-      - include: $WORKING_DIR/centos72.yml
+      - include: $WORKING_DIR/centos6.yml
+      - include: $WORKING_DIR/centos7.yml
       - include: $WORKING_DIR/ubuntu1404.yml
       - include: $WORKING_DIR/ubuntu1604.yml
   cleanup:
