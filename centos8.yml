@@ -1,0 +1,3 @@
+  - name: centos8
+    command: vagrant up centos8 --provider=digital_ocean && bundle exec itamae ssh  --no-color --host centos8 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:centos8
+    directory: $WORKING_DIR

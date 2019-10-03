@@ -33,6 +33,15 @@ Vagrant.configure('2') do |config|
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
+  config.vm.define :centos8 do |c|
+    c.vm.box = "bento/centos-8"
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = 'centos-8-x64'
+    end
+    c.vm.hostname  = 'centos8'
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
   config.vm.define :ubuntu1404 do |c|
     c.vm.box = 'chef/ubuntu-14.04'
     c.vm.provider :digital_ocean do |provider, override|
