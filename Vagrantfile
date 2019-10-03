@@ -4,7 +4,7 @@ Vagrant.configure('2') do |config|
     override.vm.box               = 'digital_ocean'
     override.vm.box_url           = 'https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box'
     provider.token                = ENV['DIGITALOCEAN_ACCESS_TOKEN']
-    provider.region               = 'sgp1'
+    provider.region               = 'nyc1'
     provider.size                 = '512MB'
     if ENV['WERCKER'] == 'true'
       provider.ssh_key_name = "wercker-#{ENV['WERCKER_GIT_REPOSITORY']}"
