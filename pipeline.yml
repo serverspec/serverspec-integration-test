@@ -15,6 +15,8 @@ build:
     - name: chmod 600 $HOME/.ssh/id_rsa
       command: chmod 600 $HOME/.ssh/id_rsa
       only_if: test "$WERCKER" = "true"
+    - name: vagrant plugin list
+      command: vagrant plugin list
     - name: Parallel builds each OSes
       parallel:
       - include: $WORKING_DIR/centos6.yml
