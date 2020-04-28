@@ -1,0 +1,3 @@
+  - name: ubuntu1804
+    command: vagrant up ubuntu1804 --provider=digital_ocean && bundle exec itamae ssh --no-color --host ubuntu1804 --vagrant recipe.rb && DIGITALOCEAN=true rake spec:ubuntu1804
+    directory: $WORKING_DIR
