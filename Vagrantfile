@@ -42,6 +42,24 @@ Vagrant.configure('2') do |config|
     c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
   end
 
+  config.vm.define :ubuntu1804 do |c|
+    c.vm.box = 'chef/ubuntu-18.04'
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = 'ubuntu-18-04-x64'
+    end
+    c.vm.hostname  = 'ubuntu1804'
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
+    config.vm.define :ubuntu2004 do |c|
+    c.vm.box = 'chef/ubuntu-20.04'
+    c.vm.provider :digital_ocean do |provider, override|
+      provider.image = 'ubuntu-20-04-x64'
+    end
+    c.vm.hostname  = 'ubuntu2004'
+    c.vm.hostname += "-#{ENV['WERCKER_BUILD_ID']}" if ENV['WERCKER_BUILD_ID']
+  end
+
   config.vm.define :freebsd do |c|
     c.vm.provider :digital_ocean do |provider, override|
       provider.image = 'freebsd-10-3-x64'
