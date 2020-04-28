@@ -12,7 +12,7 @@ host = ENV['TARGET_HOST']
 `vagrant up #{host}`
 
 config = Tempfile.new('', Dir.tmpdir)
-`vagrant ssh-config #{host} | grep -v Strict > #{config.path}`
+`vagrant ssh-config #{host} | grep -vi strict > #{config.path}`
 
 options = Net::SSH::Config.for(host, [config.path])
 
