@@ -24,7 +24,6 @@ build:
       - include: $WORKING_DIR/centos7.yml
       - include: $WORKING_DIR/ubuntu1604.yml
       - include: $WORKING_DIR/ubuntu1804.yml
-      - include: $WORKING_DIR/ubuntu2004.yml
   cleanup:
     - name: vagrant destroy
       command: vagrant destroy --force
