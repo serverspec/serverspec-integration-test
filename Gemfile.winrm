@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 case ENV['APPVEYOR_REPO_NAME'].split("/").last
 when "specinfra"
