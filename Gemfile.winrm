@@ -23,3 +23,7 @@ end
 if Gem::Version.new(RbConfig::CONFIG['RUBY_PROGRAM_VERSION']) < Gem::Version.new('2.2')
   gem 'ffi', "< 1.10"
 end
+
+if RbConfig::CONFIG['MAJOR'].to_i >= 3
+  gem 'rexml'
+end
